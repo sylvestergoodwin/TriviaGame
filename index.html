@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trivia Game</title>
+	<!-- Linking CSS -->
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="assets/js/trivia.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/gamestyle.css">
+</head>
+
+
+<body">
+
+  <!--
+  -->
+  <div id="tg-user-chice">
+    <div class="jumbotron" >
+      <div class=" text-center">
+        <h2> Competitive Trivia </h2> 
+        <h4> Choose your trivia game challenge</h4>
+      </div>
+      
+    </div>
+    <!--
+    The section below allows the user to select the options for the game.
+    The user gets a series of questions with time anwer. 
+    Each question has a default answer which will be used if the user fails to answer within the ten second time limit.
+    -->
+    <div id="tg-game-options" class="panel panel-default" >
+      <div id="tg-user-choices"> </div>
+      <div id="tg-game-options-btn-group" class="btn-group" data-toggle="buttons-radio"> </div>		
+    </div>
+		
+    <div id="tg-game-options-recap" class="panel panel-default tg-hidden">
+      <div id="tg-game-options-list">  </div>
+    </div>
+		
+    <div  id="tg-option-button" class="tg-hidden">     
+      <button type="button" class="btn btn-primary" onclick="displayTrivaQuestions()">Play Trivia</button>
+    </div>
+  </div>
+
+  <!---
+  -->
+	<div id="tg-game-play" class = "tg-hidden" >
+		<div class="jumbotron" >
+			<div class=" text-center">
+				<h2> Competitive Trivia </h2> 
+				<h4> Guess the correct answer before your time run out</h4>
+			</div>
+      <!--
+      This section displays the current game information 
+      -->
+			<div id="panel panel-default" >
+				<div id="tg-trivia-category" class="panel-heading text-center">
+				</div>
+				<div id="tg-trivia-category-tagline" class="text-center"> 
+				</div>
+        <div id="tg-current-player-info" class="container">
+					<div class="row ">
+						<div class="text-center col-mid-4"> Seconds Remaining  </div>
+						<div id="count-down-clock" class="col-mid-4 text-center text-danger timing"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="tg-play-area">
+			<div id="tg-correct-answer" class="tg-hidden" >
+			
+			</div>
+			<div class="panel panel-default">
+				<div id="tg-trivia-question">
+				</div>
+				<div id="tg-trivia-options">
+					<div id="rb-user-choice" class="">
+						<div  class="radio" onclick="rbGameQAClicked(0)">
+							<label id = "option1"><input type="radio" name="optradio" value="1" >Option 1</label>
+						</div>
+						<div class="radio" onclick="rbGameQAClicked(1)">
+							<label id = "option2"><input type="radio" name="optradio" value="2" >Option 2</label>
+						</div>
+						<div class="radio" onclick="rbGameQAClicked(2)">
+							<label id = "option3"><input type="radio" name="optradio" value="3">Option 3</label>
+						</div>
+						<div class="radio" onclick="rbGameQAClicked(3)">
+							<label id = "option4"> <input type="radio" name="optradio">Option 4</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+
+	<div id="tg-display-answer" class="tg-hidden">
+		<div class="jumbotron" >
+			<div class=" text-center">
+				<h2> Competitive Trivia </h2> 
+			</div>
+			<div id="panel panel-default" >
+				<div id="tg-trivia-category2" class="panel-heading text-center">
+				</div>
+				<div id="tg-trivia-category-tagline2" class="text-center"> 
+				</div>
+			</div>
+		</div>
+		<div id="tg-player-game-recap">
+		
+		</div>
+	</div>
+  
+</body>	
+
+<script>
+	startGame();
+</script>		
